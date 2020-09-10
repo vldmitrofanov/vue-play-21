@@ -177,7 +177,7 @@ export default {
         this.playerWin();
         return;
       } else {
-        alert("You're even'");
+        alert("You're even");
       }
     },
     dealerTurn() {
