@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vue-play-21
 
 ## Build Setup
@@ -18,3 +19,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+=======
+# vue-play-21
+>>>>>>> 50ddb3bfa4ff27a1209bb78e4fdfa07738307510
