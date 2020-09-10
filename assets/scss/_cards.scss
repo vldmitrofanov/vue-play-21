@@ -1,0 +1,135 @@
+.card21{
+    height: 202px;
+    width: 145px;
+    background-repeat: no-repeat;
+    margin: 4px;
+    border-radius: 12px;
+    &.back{
+        background-image: url('/images/clubs.png')!important;
+        background-position: -655px -429px!important;
+    }
+    &.d6,&.d7,&.d8,&.d9,&.d10,&.dj,&.dq,&.dk,&.da{
+        background-image: url('/images/diamonds.png');
+    }
+    &.d6{
+        background-position: 0 -215px;
+    }
+    &.d7{
+        background-position: -164px -215px;
+    }
+    &.d8{
+        background-position: -328px -215px;
+    }
+    &.d9{
+        background-position: -492px -215px;
+    }
+    &.d10{
+        background-position: -655px -215px;
+    }
+    &.dj{
+        background-position: 0 -429px;
+    }
+    &.dq{
+        background-position: -165px -430px;
+    }
+    &.dk{
+        background-position: -328px -429px;
+    }
+    &.da{
+        background-position: 0 0;
+    }
+
+    &.c6,&.c7,&.c8,&.c9,&.c10,&.cj,&.cq,&.ck,&.ca{
+        background-image: url('/images/clubs.png');
+    }
+    &.c6{
+        background-position: 0 -215px;
+    }
+    &.c7{
+        background-position: -164px -215px;
+    }
+    &.c8{
+        background-position: -328px -215px;
+    }
+    &.c9{
+        background-position: -492px -215px;
+    }
+    &.c10{
+        background-position: -655px -215px;
+    }
+    &.cj{
+        background-position: 0 -429px;
+    }
+    &.cq{
+        background-position: -164px -429px;
+    }
+    &.ck{
+        background-position: -328px -429px;
+    }
+    &.ca{
+        background-position: 0 0;
+    }
+
+    &.s6,&.s7,&.s8,&.s9,&.s10,&.sj,&.sq,&.sk,&.sa{
+        background-image: url('/images/spades.png');
+    }
+    &.s6{
+        background-position: 0 -215px;
+    }
+    &.s7{
+        background-position: -164px -215px;
+    }
+    &.s8{
+        background-position: -328px -215px;
+    }
+    &.s9{
+        background-position: -492px -215px;
+    }
+    &.s10{
+        background-position: -655px -215px;
+    }
+    &.sj{
+        background-position: 0 -429px;
+    }
+    &.sq{
+        background-position: -164px -429px;
+    }
+    &.sk{
+        background-position: -328px -429px;
+    }
+    &.sa{
+        background-position: 0 0;
+    }
+
+    &.h6,&.h7,&.h8,&.h9,&.h10,&.hj,&.hq,&.hk,&.ha{
+        background-image: url('/images/hearts.png');
+    }
+    &.h6{
+        background-position: 0 -215px;
+        margin-bottom: 0;
+    }
+    &.h7{
+        background-position: -164px -215px;
+    }
+    &.h8{
+        background-position: -328px -215px;
+    }
+    &.h9{
+        background-position: -492px -215px;
+    }
+    &.h10{
+        background-position: -655px -215px;
+    }
+    &.hj{
+        background-position: 0 -429px;
+    }
+    &.hq{
+        background-position: -164px -429px;
+    }
+    &.hk{
+        background-position: -328px -430px;
+    }
+    &.ha{
+        background-position: 0 0;
+    }
+}

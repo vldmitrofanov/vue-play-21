@@ -1,0 +1,34 @@
+.deck{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    li{
+        margin-bottom: 0;
+    }
+}
+
+.user-table{
+    background-color: #137984;
+    padding: 30px 20px;
+    position: relative;
+    padding-right: 300px;
+    min-height: 246px;
+    .draw-buttons{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 20px;
+        right: 20px;
+        button{
+            margin-bottom: 10px;
+        }
+    }
+}
+.dealer-table{
+    padding: 30px 20px;
+    background-color: #7d1f1f;
+    position: relative;
+    min-height: 246px;
+}
