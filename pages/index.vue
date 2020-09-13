@@ -1,31 +1,17 @@
 <template>
   <div class="container">
-    <div class="row flex-center" style="justify-content:center">
-      <h1 class="title">vue-play-21</h1>
-    </div>
-    <div class="row">
-      <div class="score-table col-9">
-        <div class="player-score score">{{playerScore}}</div>
-
-        <button
-          class="btn btn-primary btn-lg btn-block"
-          type="button"
-          @click="startNewGame"
-          :disabled="gameRunning"
-        >New Game</button>
-
-        <div class="dealer-score score" v-if="!gameRunning">{{dealerScore}}</div>
-        <div class="dealer-score score" v-else>??</div>
+    <div class="score-panel">
+      <div class="score-title">
+        <h1 class="title">vue-play-21</h1>
       </div>
-      <div class="col-1"></div>
-      <div class="score-table col-offset-1 col-2 flex-center">
+      <div class="score-table flex-center">
         <div class="total-left">
-          <span>{{playerScoreTotal}}</span>
           <label>Player</label>
+          <span>{{ playerScoreTotal }}</span>
         </div>
         <div class="total-right">
-          <span>{{dealerScoreTotal}}</span>
           <label>Dealer</label>
+          <span>{{ dealerScoreTotal }}</span>
         </div>
       </div>
     </div>
@@ -35,33 +21,64 @@
         <li
           v-for="(card, index) in dealerCards"
           :key="index"
-          :class="[gameRunning?'back':card.class]"
+          :class="[gameRunning ? 'back' : card.class]"
           class="card21"
         />
       </ul>
+      <div class="dealer-score score" v-if="!gameRunning">
+        {{ dealerScore }}
+      </div>
+      <div class="dealer-score score" v-else>??</div>
     </div>
 
     <div class="row cards21 user-table">
       <ul class="deck">
-        <li v-for="(card, index) in playerCards" :key="index" :class="card.class" class="card21" />
+        <li
+          v-for="(card, index) in playerCards"
+          :key="index"
+          :class="card.class"
+          class="card21"
+        />
       </ul>
-      <div class="draw-buttons">
-        <button type="button" class="btn btn-light" @click="drawCard">Draw</button>
-        <button type="button" class="btn btn-info" @click="playerPass">Pass</button>
+
+      <div class="draw-buttons" v-if="gameRunning">
+        <button type="button" class="btn btn-light" @click="drawCard">
+          Draw
+        </button>
+        <button type="button" class="btn btn-info" @click="playerPass">
+          Stand
+        </button>
       </div>
+      <div class="draw-buttons" v-else>
+        <button class="btn btn-primary" type="button" @click="startNewGame">
+          New Game
+        </button>
+      </div>
+      <div class="player-score score">{{ playerScore }}</div>
     </div>
 
     <div class="row cards21" v-if="false">
       <ul class="deck">
         <li class="card21 back"></li>
-        <li v-for="(card, index) in deck" :key="index" :class="card.class" class="card21" />
+        <li
+          v-for="(card, index) in deck"
+          :key="index"
+          :class="card.class"
+          class="card21"
+        />
       </ul>
     </div>
 
-    <div class="row flex-center mt-5" style="justify-content:center">
+    <div class="row flex-center mt-5" style="justify-content: center">
       <a
         href="https://github.com/vldmitrofanov/vue-play-21"
-      >https://github.com/vldmitrofanov/vue-play-21</a>
+        style="color: #888; font-size: 14px; display: flex; align-items: center"
+        ><img
+          src="/images/GitHub-32px.png"
+          style="height: 20px; margin-right: 6px"
+        />
+        https://github.com/vldmitrofanov/vue-play-21</a
+      >
     </div>
   </div>
 </template>
@@ -78,7 +95,7 @@ export default {
       pass: false,
       gameRunning: false,
       playerScoreTotal: 0,
-      dealerScoreTotal: 0
+      dealerScoreTotal: 0,
     };
   },
   computed: {
@@ -97,7 +114,7 @@ export default {
         score += this.dealerCards[i].value;
       }
       return score;
-    }
+    },
   },
   mounted() {
     this.newDeck();
@@ -153,17 +170,27 @@ export default {
       }
     },
     playerWin() {
-      alert("You won!");
+      //alert("You won!");
+      this.$swal({
+        icon: "success",
+        title: "YOU WON!",
+        text: "Congratulations!",
+      });
       this.playerScoreTotal++;
     },
-    playerLost() {
-      alert("You lost!");
+    playerLost(text) {
+      this.$swal({
+        icon: "error",
+        title: "You lost",
+        text: text,
+      });
+      //alert("You lost!");
       this.dealerScoreTotal++;
     },
     getWinner() {
       this.gameRunning = false;
       if (this.playerScore > 21) {
-        this.playerLost();
+        this.playerLost("You busted");
         return;
       }
       if (this.dealerScore > 21) {
@@ -177,7 +204,12 @@ export default {
         this.playerWin();
         return;
       } else {
-        alert("You're even");
+        //alert("You're even");
+        this.$swal({
+          icon: "info",
+          title: "You're even",
+          text: "no winners!",
+        });
       }
     },
     dealerTurn() {
@@ -202,8 +234,7 @@ export default {
     playerPass() {
       this.pass = true;
       this.dealerTurn();
-    }
-  }
+    },
+  },
 };
 </script>
-
