@@ -1,4 +1,8 @@
 # vue-play-21
+A card game similar to Blackjack. I've created this app just to demonstrate my VueJS skills
+
+## Demo
+Demo is available here [https://vue-play-21.netlify.app/](https://vue-play-21.netlify.app/)
 
 ## Build Setup
 
